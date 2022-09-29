@@ -43,16 +43,17 @@ public class PracticeForm {
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
-        $(".table-responsive table").shouldHave(text("Veta Iuzykhovich"),
-                text("veta@veta.com"));
-        text("Male");
-        text("1234567891");
-        text("10 January,2000");
-        text("Arts");
-        text("Sports");
-        text("7.png");
-        text("some address");
-        text("NCR Delhi");
+        $(".table-responsive table")
+                .shouldHave(text("Veta Iuzykhovich"),
+                        text("veta@veta.com"),
+                        text("Male"),
+                        text("1234567891"),
+                        text("10 January,2000"),
+                        text("Arts"),
+                        text("Sports"),
+                        text("7.png"),
+                        text("some address"),
+                        text("NCR Delhi"));
         /*$(".table-responsive table").$(byText("Student name"))
                 .parent().shouldHave(text("Veta Iuzykhovich"));*/
     }
