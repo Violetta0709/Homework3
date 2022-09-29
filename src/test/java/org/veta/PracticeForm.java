@@ -3,12 +3,10 @@ package org.veta;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-
 public class PracticeForm {
     @BeforeAll
     static void configure() {
@@ -16,7 +14,6 @@ public class PracticeForm {
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = true;
     }
-
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
@@ -40,20 +37,19 @@ public class PracticeForm {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-
-        $(".table-responsive table")
-                .shouldHave(text("Veta Iuzykhovich"),
-                        text("veta@veta.com"),
-                        text("Male"),
-                        text("1234567891"),
-                        text("10 January,2000"),
-                        text("Arts"),
-                        text("Sports"),
-                        text("7.png"),
-                        text("some address"),
-                        text("NCR Delhi"));
+        $(".table-responsive table").shouldHave(text("Veta Iuzykhovich"),
+                text("veta@veta.com"),
+                text("Male"),
+                text("1234567891"),
+                text("10 January,2000"),
+                text("Arts"),
+                text("Sports"),
+                text("7.png"),
+                text("some address"),
+                text("NCR Delhi"));
         /*$(".table-responsive table").$(byText("Student name"))
                 .parent().shouldHave(text("Veta Iuzykhovich"));*/
     }
