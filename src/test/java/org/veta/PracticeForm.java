@@ -3,10 +3,12 @@ package org.veta;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+
 public class PracticeForm {
     @BeforeAll
     static void configure() {
@@ -14,6 +16,7 @@ public class PracticeForm {
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = true;
     }
+
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
@@ -50,7 +53,25 @@ public class PracticeForm {
                 text("7.png"),
                 text("some address"),
                 text("NCR Delhi"));
-        /*$(".table-responsive table").$(byText("Student name"))
-                .parent().shouldHave(text("Veta Iuzykhovich"));*/
+        $(".table-responsive table").$(byText("Student Name"))
+                .parent().shouldHave(text("Veta Iuzykhovich"));
+        $(".table-responsive table").$(byText("Student Email"))
+                .parent().shouldHave(text("veta@veta.com"));
+        $(".table-responsive table").$(byText("Gender"))
+                .parent().shouldHave(text("Male"));
+        $(".table-responsive table").$(byText("Mobile"))
+                .parent().shouldHave(text("1234567891"));
+        $(".table-responsive table").$(byText("Date of Birth"))
+                .parent().shouldHave(text("10 January,2000"));
+        $(".table-responsive table").$(byText("Subjects"))
+                .parent().shouldHave(text("Arts"));
+        $(".table-responsive table").$(byText("Hobbies"))
+                .parent().shouldHave(text("Sports"));
+        $(".table-responsive table").$(byText("Picture"))
+                .parent().shouldHave(text("7.png"));
+        $(".table-responsive table").$(byText("Address"))
+                .parent().shouldHave(text("some address"));
+        $(".table-responsive table").$(byText("State and City"))
+                .parent().shouldHave(text("NCR Delhi"));
     }
 }
